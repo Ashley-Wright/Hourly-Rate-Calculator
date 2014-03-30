@@ -2,6 +2,7 @@ $(document).ready(initialize);
 
 function initialize(){
   $('#addRuleButton').click(addRule);
+  $('#calculateRateButton').click(calculateRate);
 }
 
 function addRule(){
@@ -18,4 +19,43 @@ function addRule(){
   $value.text(ruleValue);
   $tr.append($checkbox, $title, $value);
   $('table').append($tr);
+}
+
+function calculateRate() {
+  // Get Values
+  var baseRate = parseInt($('#baseRate').val());
+  var rate = new Rate(baseRate);
+  var changeInRate = 0;
+
+  // Loop through Rules that are checked
+  var rules = $(':checked');
+  rules.each(function(rate){
+    var value = $(this).parent().find('.tdValue').text();
+    value = parseInt(value);
+    changeInRate += value;
+  })
+
+  // Update Rate
+  if (changeInRate >= 0){
+    rate.increaseRate(changeInRate);
+  } else if (changeInRate < 0) {
+    rate.decreaseRate(changeInRate);
+  }
+
+  // Update HTML
+  $('#calculatedRate').val(rate.calculatedRate);
+}
+
+// Rate Object
+function Rate(baseRate){
+  this.baseRate = baseRate;
+  this.calculatedRate = baseRate;
+}
+
+Rate.prototype.increaseRate = function(changeInRate){
+  this.calculatedRate += changeInRate;
+}
+
+Rate.prototype.decreaseRate = function(changeInRate){
+  this.calculatedRate += changeInRate;
 }

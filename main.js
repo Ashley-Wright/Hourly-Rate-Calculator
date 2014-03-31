@@ -28,28 +28,35 @@ function addRule(){
 }
 
 function calculateRate() {
-  // Get Values
   var baseRate = parseInt($('#baseRate').val());
-  var rate = new Rate(baseRate);
-  var changeInRate = 0;
+  if (baseRate){
+    // Get Values
+    var rate = new Rate(baseRate);
+    var changeInRate = 0;
 
-  // Loop through Rules that are checked
-  var rules = $(':checked');
-  rules.each(function(rate){
-    var value = $(this).parent().find('.tdValue').text();
-    value = parseInt(value);
-    changeInRate += value;
-  })
+    // Loop through Rules that are checked
+    var rules = $(':checked');
+    rules.each(function(rate){
+      var value = $(this).parent().find('.tdValue').text();
+      value = parseInt(value);
+      changeInRate += value;
+    })
 
-  // Update Rate
-  if (changeInRate >= 0){
-    rate.increaseRate(changeInRate);
-  } else if (changeInRate < 0) {
-    rate.decreaseRate(changeInRate);
+    // Update Rate
+    if (changeInRate >= 0){
+      rate.increaseRate(changeInRate);
+    } else if (changeInRate < 0) {
+      rate.decreaseRate(changeInRate);
+    }
+
+    // Update HTML
+    $('#calculatedRate').val(formatDollar(rate.calculatedRate));
+    $('#right .error').addClass('hidden');
+
+  } else {
+    // error
+    $('#right .error').text('Must enter a number into base rate').removeClass('hidden');
   }
-
-  // Update HTML
-  $('#calculatedRate').val(formatDollar(rate.calculatedRate));
 }
 
 function formatDollar(value){

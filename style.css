@@ -68,3 +68,13 @@ th.tdTitle{
   width: 10%;
   text-align: right;
 }
+
+.hidden{
+  display: none;
+}
+
+.error{
+  background-color: #EE5C5C;
+  margin: 0;
+  padding-left: 5px;
+}

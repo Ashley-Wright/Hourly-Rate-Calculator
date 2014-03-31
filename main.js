@@ -11,15 +11,23 @@ function addRule(){
   var ruleTitle = $('#ruleTitle').val();
   var ruleValue = parseInt($('#ruleValue').val());
 
-  // Add Row to Rules Table
-  var $tr = $('<tr>');
-  var $checkbox = $('<input type="checkbox">');
-  var $title = $('<td class="tdTitle">');
-  $title.text(ruleTitle);
-  var $value = $('<td class="tdValue">');
-  $value.text(ruleValue);
-  $tr.append($checkbox, $title, $value);
-  $('table').append($tr);
+  if(ruleTitle && ruleValue){
+    // Add Row to Rules Table
+    var $tr = $('<tr>');
+    var $checkbox = $('<input type="checkbox">');
+    var $title = $('<td class="tdTitle">');
+    $title.text(ruleTitle);
+    var $value = $('<td class="tdValue">');
+    $value.text(ruleValue);
+    $tr.append($checkbox, $title, $value);
+    $('table').append($tr);
+    // Remove any previous errors
+    $('#left .error').addClass('hidden');
+
+  } else {
+    // error
+    $('#left .error').text('Must enter a Title and a number for Change in Base Rate').removeClass('hidden');
+  }
 
   // Clear Input and re-focus
   $('#ruleTitle').val('');

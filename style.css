@@ -73,6 +73,10 @@ th.tdTitle{
   display: none;
 }
 
+.clear{
+  clear: both;
+}
+
 .error{
   background-color: #EE5C5C;
   margin: 0;

@@ -43,7 +43,11 @@ function calculateRate() {
   }
 
   // Update HTML
-  $('#calculatedRate').val(rate.calculatedRate);
+  $('#calculatedRate').val(formatDollar(rate.calculatedRate));
+}
+
+function formatDollar(value){
+  return '$' + value + '/hr';
 }
 
 // Rate Object

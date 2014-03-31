@@ -1,0 +1,70 @@
+body{
+  width: 900px;
+  margin: auto;
+}
+
+#left{
+  width: 296px;
+  float: left;
+  border: 1px solid grey;
+  background-color: #CCCCFF;
+}
+
+#right{
+  width: 596px;
+  float: right;
+  border: 1px solid #CCCCCC;
+  background-color: #CCCCCC;
+}
+
+#left input, #left label, #left h3{
+  display: block;
+  width: 95%;
+  margin: 2px auto;
+}
+
+#right label{
+  margin-left: 5px;
+}
+
+#left #addRuleButton{
+  width: 60px;
+  float: left;
+  margin-left: 5px;
+}
+
+#right #calculateRateButton{
+  display: block;
+  margin-left: 5px;
+}
+
+table{
+  width: 95%;
+  margin: auto;
+}
+
+#table{
+  min-height: 100px;
+  background-color: #EEEEEE;
+}
+
+th{
+  text-decoration: underline;
+}
+
+#thCheckbox{
+  width: 5%;
+}
+
+.tdTitle{
+  width: 85%;
+}
+
+th.tdTitle{
+  text-align: left;
+}
+
+.tdValue{
+  width: 10%;
+  text-align: right;
+}

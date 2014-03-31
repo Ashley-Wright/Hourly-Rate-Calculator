@@ -3,30 +3,43 @@
   <head>
     <meta charset='utf-8'>
     <title>Rate Calculator</title>
+    <link rel='stylesheet' href='style.css'>
   </head>
   <body>
     <h1>Rate Calculator</h1>
 
-    <!-- Add Rule Inputs -->
-    Title: <input id='ruleTitle' type='text'>
-    Change in Base Rate: <input id='ruleValue' type='text'>
-    <input id='addRuleButton' type='button' value='Add'>
+    <div id='left'>
+      <!-- Add Rule Inputs -->
+      <h3>Add a New Rule</h3>
+      <label>Title:</label>
+      <input id='ruleTitle' type='text'>
+      <label>Change in Base Rate:</label>
+      <input id='ruleValue' type='text'>
+      <input id='addRuleButton' type='button' value='Add'>
+    </div>
 
-    <!-- Base Rate Input -->
-    Base Rate: <input id='baseRate' type='text'>
+    <div id='right'>
+      <!-- Base Rate Input -->
+      <label>Base Rate:</label>
+      <input id='baseRate' type='text'>
 
-    <!-- Rules Table -->
-    <table>
-      <thead>
-        <th>Rule</th>
-        <th>Amount</th>
-      </thead>
-      <tbody></tbody>
-    </table>
+      <!-- Rules Table -->
+      <div id='table'>
+        <table>
+          <thead>
+            <th id='thCheckbox'></th>
+            <th class='tdTitle'>Rule</th>
+            <th class='tdValue'>Amount</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
 
-    <!-- Calculate Hourly Rate -->
-    <input id='calculateRateButton' type='button' value='Calculate'>
-    Total Calculated Rate: <input id='calculatedRate' type='text'>
+      <!-- Calculate Hourly Rate -->
+      <input id='calculateRateButton' type='button' value='Calculate'>
+      <label>Total Calculated Rate:</label>
+      <input id='calculatedRate' type='text'>
+    </div>
 
     <!-- scripts -->
     <script src='jquery-1.10.2.min.js'></script>

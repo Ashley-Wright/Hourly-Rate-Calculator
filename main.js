@@ -1,6 +1,7 @@
 $(document).ready(initialize);
 
 function initialize(){
+  $('#ruleTitle').focus();
   $('#addRuleButton').click(addRule);
   $('#calculateRateButton').click(calculateRate);
 }
@@ -19,6 +20,11 @@ function addRule(){
   $value.text(ruleValue);
   $tr.append($checkbox, $title, $value);
   $('table').append($tr);
+
+  // Clear Input and re-focus
+  $('#ruleTitle').val('');
+  $('#ruleValue').val('');
+  $('#ruleTitle').focus();
 }
 
 function calculateRate() {
